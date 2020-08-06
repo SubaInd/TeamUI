@@ -1,0 +1,180 @@
+<mat-toolbar  style ="background:blue">
+    <mat-toolbar-row>
+        <marquee style="font-size: 20px;color:white">Hi User !!  Welcome to cognizant QBTHON portal</marquee>
+           </mat-toolbar-row>
+    <mat-toolbar-row>
+       
+    <a class ="gap" [routerLink]="''" mat-button>EventsInfo</a>
+    
+    <a class = "gap" [routerLink]="''"mat-button> MCQDos</a>
+    <a class = "gap" [routerLink]="''"mat-button> MCQDonts</a>
+    <a class ="endicon" [routerLink]="''" mat-button> signOut</a>
+    </mat-toolbar-row>
+
+
+</mat-toolbar>
+<br>
+<br>
+<div style="border:1px solid black">
+    <br>
+    <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start" >
+        <div fxFlex="0 1 calc(55% - 32px)">
+            <label><b>select Question to review</b></label>
+            <select  class ="select-class"  #questionselect name="questions" id="questions" [(ngModel)]="questionstring" (change)='questionselected(questionselect.value)'>
+                <option *ngFor="let question of questions">{{question["questiontext"]}}</option>
+              </select>
+        </div>
+        </div>
+        <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start" [hidden]="!makevisible">
+            <div fxFlex="0 1 calc(25% - 32px)">
+                <label><b>selected skills</b></label>
+              <input [disabled]="true" class ="input-class" name="skills" id="skills" [(ngModel)]="mcq.skills">
+                  
+          </div>
+          
+          <div fxFlex="0 1 calc(25% - 32px)">
+              <label><b>Taxonomy</b></label>
+              <input [disabled]="true" class ="input-class" #taxononmyselect name="Taxonomy" id="taxonomy" [(ngModel)]="mcq.taxonomy" >
+                 
+          </div>
+          
+          <div fxFlex="0 1 calc(25% - 32px)">
+              <label><b>Difficulty level</b></label>
+              <input [disabled]="true" class ="input-class" name="DifficultyLevel" id="DifficultyLevel" [(ngModel)]="mcq.difficultylevel">
+                  
+          </div>
+          <div fxFlex="0 1 calc(25% - 32px)">
+              <label><b>classification</b></label>
+              <input [disabled]="true" class ="input-class" name="classification" id="classification" [(ngModel)]="mcq.classification">
+                  
+          </div>
+          </div>
+          <br>
+          <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start" [hidden]="!makevisible">
+              <div fxFlex="0 1 calc(25% - 32px)">
+                  <label><b>MultipleAnswers</b></label>
+              <input [disabled]="true" class ="input-class" name="MultipleAnswers" id="MultipleAnswers" [(ngModel)]="mcq.multipleanswers">
+                  
+                </div>
+          
+                <div fxFlex="0 1 calc(25% - 32px)">
+                  <label><b>Topic</b></label>
+              <input [disabled]="true" type ="text" class ="select-class" [(ngModel)]="mcq.topic">
+                </div>
+          
+                <div fxFlex="0 1 calc(25% - 32px)">
+                  <label><b>Question Source</b></label>
+                  <input [disabled]="true" type ="text" class ="select-class" [(ngModel)]="mcq.questionsource">
+                </div>
+              
+          </div>
+          <br>
+          <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start" [hidden]="!makevisible">
+              <div fxFlex="0 1 calc(70% - 32px)">
+                  <label><b>Question Text</b></label>
+                  <br>
+                  <textarea [disabled]="true" class ="select-class" style="width:800px" [(ngModel)]="mcq.questiontext"></textarea>
+              
+          </div>
+          </div>
+          <br>
+          <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start" [hidden]="!makevisible">
+              <div fxFlex="0 1 calc(15% - 32px)">
+                  <label><b>Option1</b></label>
+                  <textarea [disabled]="true" class ="select-class" style="width:300px" [(ngModel)]="mcq.option1"></textarea>
+                </div>
+          
+                <div fxFlex="0 1 calc(15% - 32px)">
+                  <label><b>CorrectAnswer?</b></label>
+                  <br>
+                  <input [disabled]="true" class ="select-class" name="choice1" id="choice1" [(ngModel)]="mcq.option1correct">
+                                        </div>
+                  <div fxFlex="0 1 calc(15% - 32px)">
+                      <label><b>Option2</b></label>
+                      <br>
+                      <textarea [disabled]="true" class ="select-class" style="width:300px" [(ngModel)]="mcq.option2"></textarea>
+                    </div>
+              
+                    <div fxFlex="0 1 calc(15% - 32px)">
+                      <label><b>CorrectAnswer?</b></label>
+                      <br>
+                      <input [disabled]="true"  class ="select-class" name="choice2" id="choice2" [(ngModel)]="mcq.option2correct">
+                          
+                      </div>
+          
+                
+          </div>
+          
+          <br>
+          
+          <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start" [hidden]="!makevisible">
+              <div fxFlex="0 1 calc(15% - 32px)">
+                  <label><b>Option3</b></label>
+                  <br>
+                  <textarea [disabled]="true" class ="select-class" style="width:300px" [(ngModel)]="mcq.option3"></textarea>
+                </div>
+          
+                <div fxFlex="0 1 calc(15% - 32px)">
+                  <label><b>CorrectAnswer?</b></label>
+                  <br>
+                  <input [disabled]="true"  class ="select-class" name="choice3" id="choice3" [(ngModel)]="mcq.option3correct">
+                     
+                  </div>
+                  <div fxFlex="0 1 calc(15% - 32px)">
+                      <label><b>Option4</b></label>
+                      <br>
+                      <textarea [disabled]="true" class ="select-class" style="width:300px" [(ngModel)]="mcq.option4"></textarea>
+                    </div>
+              
+                    <div fxFlex="0 1 calc(15% - 32px)">
+                      <label><b>CorrectAnswer?</b></label>
+                      <br>
+                      <input [disabled]="true" class ="select-class" name="choice4" id="choice4" [(ngModel)]="mcq.option4correct">
+                          
+                      </div>
+                           
+                
+          </div>
+          <br>
+          <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start" [hidden]="!makevisible">
+              <div fxFlex="0 1 calc(15% - 32px)">
+                  <label><b>Option5(optional)</b></label>
+                  <br>
+                  <textarea class ="select-class" style="width:300px" [(ngModel)]="mcq.option5"></textarea>
+                </div>
+          
+                <div fxFlex="0 1 calc(15% - 32px)">
+                  <label><b>CorrectAnswer?</b></label>
+                  <br>
+                  <select class ="select-class" name="choice5" id="choice5" [(ngModel)]="mcq.option5correct">
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                      
+                    </select>
+                  </div>
+                  </div>
+                  <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start" [hidden]="!makevisible">
+                    <div fxFlex="0 1 calc(55% - 32px)">
+                        <label><b>Enter sme comments</b></label>
+                        <br>
+                        <textarea class ="select-class" style="width:300px" [(ngModel)]="mcq.comments"></textarea>
+                      </div>
+                  </div>
+                  <br>
+                  <br>
+                  <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start" [hidden]="!makevisible">
+                      <div fxFlex="0 1 calc(55% - 32px)"> 
+                          <button  class="button btn btn-primary" (click)= "submitMcqReview()">Submit</button>
+                          </div> 
+                         
+                                  
+          
+          
+          </div>
+          <br>
+          <br>
+          
+          
+          
+          </div>
+

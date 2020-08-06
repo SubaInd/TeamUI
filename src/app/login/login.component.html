@@ -1,0 +1,41 @@
+
+
+<body>
+
+
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login_form">
+        <div style="border:1px solid black">
+        <h2 style="padding-left:100px;color:#1569C7">Login to QBthon</h2>
+        <table>
+            <tr >
+            <td><label for="username">Username</label></td>
+            <td><input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" /></td>
+            <td><div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+                
+            
+        </div>
+        </td>
+        </tr>
+        <tr >
+            <td><label for="password">Password</label></td>
+            <td><input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" /></td>
+            <td><div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
+            </td>
+           </tr>
+        <tr >
+    
+            <td>  <div class="form-group"><button  class="button btn btn-primary">Login</button></div></td>
+    
+            </tr>
+    
+            
+        </table>
+    </div>    
+    </form>
+        
+        </body>
+        

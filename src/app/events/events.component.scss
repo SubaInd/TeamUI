@@ -1,0 +1,46 @@
+.button {
+    
+    border: none;
+    background-color:#1569C7;
+    color: white;
+    padding: 10px;
+    border-radius: 12px;
+    width:200px;
+  text-align: center;
+  
+    
+  }
+
+  .filler {
+    flex: 1 1 auto;
+ }
+ .gap {
+    margin-right: 100px;
+    color:white;
+ }
+ .endicon{
+     padding-right:0px;
+     margin-right:100px;
+     color:white;
+ }
+ .row{
+    width:100px;
+    height:100px;
+   
+    margin-right:10px;
+    float:left;
+}
+.col{
+    float:left;
+    margin-right:5px;
+}
+
+.mat-form-field{
+	padding-left: 10px;
+	padding-right: 20px;
+	padding-top: 30px;
+}
+ 
+.mat-form-field{
+	margin: 10px;
+}

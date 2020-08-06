@@ -1,0 +1,8 @@
+.mat-dialog-title {
+    color: white;
+	background-color: #F48043;
+	border: 10px;
+}
+.mat-dialog-container {
+    padding: 0px !important;
+}

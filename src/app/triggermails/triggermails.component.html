@@ -1,0 +1,64 @@
+<mat-toolbar  style ="background:blue">
+    <mat-toolbar-row>
+        <marquee style="font-size: 20px;color:white">Hi Admin !!  Welcome to cognizant QBTHON portal</marquee>
+           </mat-toolbar-row>
+    <mat-toolbar-row>
+        <a  class ="gap" [routerLink]="'/EventsdayAdmin'" mat-button>EventDAy</a>
+        <a  class ="gap" [routerLink]="'/eventsAdmin'" mat-button>Events</a>
+    
+    <a class = "gap" [routerLink]="'/dashboard'"mat-button> Dashboard</a>
+    <a class ="endicon" [routerLink]="'/logoff'" mat-button> signOut</a>
+    
+    </mat-toolbar-row>
+
+
+</mat-toolbar>
+<br>
+<br>
+<div style="border:1px solid black">
+
+    <br>
+<div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+  <div fxFlex="0 1 calc(30% - 32px)">
+      <label><b>select Email type</b></label>
+    <select  class ="select-class" name="templates" id="templates" [(ngModel)]="selectedtemplate" (change)='tempalteSelected()'>
+        <option *ngFor="let template of templates">{{template}}</option>
+      </select>
+</div>
+
+<div fxFlex="0 1 calc(30% - 32px)">
+    <label><b>Select Event</b></label>
+    <select class ="select-class"  name="eventnames" id="eventnames" [(ngModel)]="selectedEventId" (change)='eventidSelected()'>
+        <option *ngFor="let eventname of eventids">{{eventname}}</option>
+    </select>
+</div>
+
+<div fxFlex="0 1 calc(30% - 32px)">
+    <label><b>Associateemails</b></label>
+    <select class ="select-class"  name="emailids" id="emailids" [(ngModel)]="selectedEventId" (change)='eventidSelected()' multiple>
+        <option *ngFor="let email of emails">{{email}}</option>
+    </select>
+</div>
+</div>
+
+<div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-end">
+    <div fxFlex="0 1 calc(25% - 32px)"> 
+        <button  class="button btn btn-primary" (click)= "triggerMail()">TriggerMail</button>
+        <span></span>
+        <button  style=" margin-right: 100px;"class="button btn btn-primary" (click)="cancel()">Cancel</button>
+        </div> 
+        
+             
+                
+                
+
+
+</div>
+<br>
+<br>
+</div>
+
+   
+
+
+

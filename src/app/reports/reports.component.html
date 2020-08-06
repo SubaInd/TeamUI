@@ -1,0 +1,41 @@
+<mat-toolbar  style ="background:blue">
+    <mat-toolbar-row>
+        <marquee style="font-size: 20px;color:white">Hi Admin !!  Welcome to cognizant QBTHON portal</marquee>
+           </mat-toolbar-row>
+    <mat-toolbar-row>
+        <a  class ="gap" [routerLink]="'/EventsdayAdmin'" mat-button>EventDAy</a>
+        <a  class ="gap" [routerLink]="'/eventsAdmin'" mat-button>Events</a>
+    <a class ="gap" [routerLink]="'/triggermail'" mat-button>TriggerMails</a>
+   
+    <a class ="endicon" [routerLink]="'/logoff'" mat-button> signOut</a>
+    </mat-toolbar-row>
+
+
+</mat-toolbar>
+<br>
+<br>
+
+<div>
+    <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+        <div fxFlex="0 1 calc(25% - 32px)">
+            <label><b>Pull reports by</b></label>
+          <select  class ="select-class" name="skills" id="skills" [(ngModel)] ="reportType" (change) ='populateChart()'>
+              <option value="Question status">Question Status</option>
+                    <option value="Events">Events </option>
+      
+              <option value="Skills">Skills</option>
+             
+            </select>
+      </div>
+      <div fxFlex="0 1 calc(25% - 32px)" >
+        <google-chart #chart
+        [title]="reportType"
+        [type]="charttype"
+        [data]="chartdata"
+        [options]="options"
+        [width]="500"
+        [height]="400">
+     </google-chart>
+      </div>
+      
+</div>

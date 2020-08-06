@@ -1,0 +1,102 @@
+<mat-toolbar  style ="background:blue">
+    <mat-toolbar-row>
+        <marquee style="font-size: 20px;color:white">Hi User !!  Welcome to cognizant QBTHON portal</marquee>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+        <a  class ="gap" [routerLink]="'/EventsdayUser'" mat-button>EventDAy</a>
+        <a  class ="gap" [routerLink]="'/nominate'" mat-button>Nominate</a>
+		<a class ="gap" [routerLink]="'/eventsInfo'" mat-button>EventsInfo</a>
+		<a class = "gap" [routerLink]="''"mat-button> MCQDos</a>
+		<a class = "gap" [routerLink]="''"mat-button> MCQDonts</a>
+		<a class ="endicon" [routerLink]="''" mat-button> signOut</a>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class ="container-fluid"  style="padding-left: 25px;padding-right: 25px;">
+   <div class="row">
+     <div class="col-lg-8">
+       <h3>Upcoming Events Information</h3>
+       </div>
+   </div>
+
+   <div >
+  
+    <div class="row">
+      <div col="col-sm col-md col-lg">
+	<label>Event Date</label>
+		<span>
+        <mat-form-field  class="input-row" appearance="outline">
+           <mat-select #eventDate [(value)]="selected">
+   	  <mat-option value="10">Next 10 Days</mat-option>
+      <mat-option value="30">Next 30 days</mat-option>
+	  <mat-option value="60">Next 60 days</mat-option>
+    <mat-option value="0" (click)="openDialog()">Custom</mat-option>
+  </mat-select>
+    </mat-form-field>
+</span>
+	<label>Event Skills</label>
+		<span>
+        <mat-form-field  class="input-row" appearance="outline">
+       <mat-select placeholder="All" [(ngModel)]="selectedSkills" multiple #selectionModel="ngModel">
+        <app-select-check-all [model]="selectionModel" 
+                          [values]="skills">
+    </app-select-check-all>
+   	  <mat-option *ngFor="let skill of skills" [value]="skill">{{skill}}</mat-option>
+	</mat-select>
+		</mat-form-field>
+</span>
+<div *ngIf="eventDate.value==0"><mat-hint>Selected Date Range is {{eventStartDate}} - {{eventEndDate}}</mat-hint></div>
+</div>
+	</div>
+</div>
+	<div style="float:right">
+		<button mat-raised-button color="primary" style="margin:5px" (click)="submit(eventDate.value, selectedSkills, eventStartDate, eventEndDate)" id='submit-search' type='submit' for='searchBar'>Submit</button>
+		<button mat-raised-button color="primary" style="margin:5px" (click)="clear()" id='submit-clear' type='submit' for='searchBar'>Clear</button>
+	</div>
+</div>
+<br>
+<br>
+<br>
+<div *ngIf="searchGrid" class="event-container" style="padding-left: 25px;padding-right: 25px;">
+	<table mat-table [dataSource]="dataSource">
+		
+    <!-- Event Name Column -->
+    <ng-container matColumnDef="eventName">
+      <th mat-header-cell *matHeaderCellDef> Event Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.eventName}} </td>
+    </ng-container>
+
+    <!-- Event Date Column -->
+    <ng-container matColumnDef="eventDate">
+      <th mat-header-cell *matHeaderCellDef> Event Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.eventDate}} </td>
+    </ng-container>
+
+    <!-- Event Slot Column -->
+    <ng-container matColumnDef="eventSlot">
+      <th mat-header-cell *matHeaderCellDef> Event Slot </th>
+      <td mat-cell *matCellDef="let element"> {{element.eventSlot}} </td>
+    </ng-container>
+
+    <!-- Event Time Column -->
+    <ng-container matColumnDef="eventstartTime">
+      <th mat-header-cell *matHeaderCellDef> Event Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.eventstartTime + ' - ' + element.eventEndTime}}</td>
+	</ng-container>
+	
+	<!-- Event Skills Column -->
+    <ng-container matColumnDef="eventSkills">
+      <th mat-header-cell *matHeaderCellDef> Skills </th>
+      <td mat-cell *matCellDef="let element"> {{element.eventSkills}}</td>
+  </ng-container>
+  
+  <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element"><a routerLink="/nominate">Nominate</a></td>
+	</ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

@@ -1,0 +1,77 @@
+<mat-toolbar  style ="background:blue">
+<mat-toolbar-row>
+        <a  class ="gap" [routerLink]="'/EventsdayUser'" mat-button>EventDAy</a>
+        
+    <a class ="gap" [routerLink]="'/eventsInfo'" mat-button>EventsInfo</a>
+    <a class = "gap" [routerLink]="''"mat-button> MCQDos</a>
+    <a class = "gap" [routerLink]="''"mat-button> MCQDonts</a>
+    <a class ="endicon" [routerLink]="''" mat-button> signOut</a>
+    </mat-toolbar-row>
+</mat-toolbar>
+<br>
+<br>
+<br>
+<br>    
+
+
+<div class="container">
+    <div class="row">
+        <div class="form-group col-sm col-md col-lg">
+        <h2>Nominate for an Event</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm col-md col-lg">
+            <label>Event Name</label>
+             <mat-form-field  class="input-row" appearance="outline">
+                <mat-label>Select Event Name</mat-label>
+                <mat-select #eventName [(ngModel)]="selectedEventName" (selectionChange)="eventNameChange()">
+                    <mat-option *ngFor="let eventName of eventNames" [value]="eventName">{{eventName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form-group col-sm col-md col-lg">
+            <label>Event Date</label>
+             <mat-form-field  class="input-row" appearance="outline">
+                <mat-label>Select Event Date</mat-label>
+                <mat-select #eventSlot [(value)]="selectedEventDate" (selectionChange)="eventDateChange()">
+                    <mat-option *ngFor="let eventDate of eventDates" [value]="eventDate">{{eventDate}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+     <div class="row">
+         <div class="form-group col-sm col-md col-lg">
+            <label>Event Slot</label>
+             <mat-form-field  class="input-row" appearance="outline">
+                <mat-label>Select Event Slot</mat-label>
+                <mat-select #eventSlot [(value)]="selectedEventSlot" (selectionChange)="eventSlotChange()">
+                    <mat-option *ngFor="let eventSlot of eventSlots" [value]="eventSlot">{{eventSlot}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="form-group col-sm col-md col-lg">
+           <label>Event Skills</label>
+             <mat-form-field  class="input-row" appearance="outline">
+                    <mat-select #select placeholder="Select Event Skills" [(ngModel)]="selectedEventSkills" multiple #selectionModel="ngModel">
+                        <app-select-check-all [model]="selectionModel" 
+                                        [values]="eventSkills">
+                    </app-select-check-all>
+                    <mat-option *ngFor="let skill of eventSkills | uniqueFilter" [value]="skill">{{skill}}</mat-option>
+                    </mat-select>
+		    </mat-form-field>
+        </div>
+    </div>
+    
+</div>
+
+<br>
+<br>
+<div class ="container-float" style="float:right">
+    <button  class="button btn btn-primary" style="margin:5px" (click)="nominate()" id='submit-nominate' type='submit' for='searchBar'>Nominate</button> 
+    <button class="button btn btn-primary" style="margin:5px" (click)="clear()" id='submit-clear' type='submit' for='searchBar'>Clear</button>
+</div>
+
+

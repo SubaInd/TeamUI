@@ -1,0 +1,73 @@
+.mat-form-field{
+	padding-left: 10px;
+	padding-right: 20px;
+	padding-top: 30px;
+}
+ 
+.mat-form-field{
+	margin: 10px;
+}
+
+td.mat-cell {
+ /* row padding */
+ text-align: center;
+ /* row border */
+ border-right: 1px solid;
+ border-left: 1px solid;
+ border-top: 1px solid;
+ border-bottom: 1px solid;
+}
+
+.mat-header-cell {
+   /* row padding */
+ padding: 16px;
+ /* row border */
+ border-right: 1px solid;
+ border-left: 1px solid;
+ border-top: 1px solid;
+ border-bottom: 1px solid;
+ font-style: inherit;
+ font-size: 12px;
+ font-weight: 800;
+ text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  height:300px;
+  width: 90%;
+  border-spacing: 0 8px !important;
+  border-right: 1px solid;
+ border-left: 1px solid;
+ border-top: 1px solid;
+   overflow-y: scroll;
+ border-bottom: 1px solid;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 200px;
+  outline-offset: inherit;
+  border: black;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+.event-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  padding: 20px;
+}
+.filler {
+  flex: 1 1 auto;
+}
+.gap {
+  margin-right: 100px;
+  color:white;
+}
+.endicon{
+   padding-right:0px;
+   margin-right:100px;
+   color:white;
+}

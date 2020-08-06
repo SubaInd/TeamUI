@@ -1,0 +1,91 @@
+
+<mat-toolbar  style ="background:blue">
+    
+    <mat-toolbar-row>
+        <a  class ="gap" [routerLink]="'/EventsdayAdmin'" mat-button>EventDAy</a>
+        
+    <a class ="gap" [routerLink]="'/triggermail'" mat-button>TriggerMails</a>
+    <a class = "gap" [routerLink]="'/dashboard'"mat-button> Dashboard</a>
+    <a class ="endicon" [routerLink]="'/logoff'" mat-button> signOut</a>
+    </mat-toolbar-row>
+
+
+</mat-toolbar>
+<br>
+<br>
+<br>
+
+
+<div class ="container-fluid" >
+<div  >
+    <form [formGroup]="eventCreationForm" >
+        <div style="border:1px solid black">
+        
+    <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+        <div fxFlex="0 1 calc(25% - 32px)">
+                <label>Event Name</label>
+                <input type="text" formControlName="eventName" class="form-control" >
+                       
+        </div>
+        <div fxFlex="0 1 calc(25% - 32px)">
+            <span>Date of event</span>
+            
+                <input matInput [matDatepicker]="picker" formControlName="eventDate" placeholder="Choose a date">
+               <span> <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle></span>
+               <span> <mat-datepicker #picker></mat-datepicker></span>
+            
+         </div>   
+         <div fxFlex="0 1 calc(25% - 32px)">
+           
+            <label class="radio-inline">
+            <input type="radio" value="Morning" id="morning" formControlName="eventSlot" class="form-control" >
+            morningslot</label>
+            <span>
+            <label class="radio-inline">
+            <input type="radio" value="Noon" id="noon" formControlName="eventSlot" class="form-control gap" >
+            AfterNoonslot</label> </span>
+         </div>  
+        </div>
+        <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+         
+        
+         <div fxFlex="0 1 calc(25% - 32px)">
+            <label for="skills">Event Skills</label>
+             <mat-form-field  class="input-row" appearance="outline">
+               <mat-select placeholder="All" [(ngModel)]="selectedSkills" [ngModelOptions]="{standalone: true}" (ngModelChange)="getAssocIds()" multiple #selectionModel="ngModel">
+                <app-select-check-all [model]="selectionModel" 
+                                  [values]="eventSkills">
+            </app-select-check-all>
+                 <mat-option *ngFor="let skill of eventSkills" [value]="skill">{{skill}}</mat-option>
+            </mat-select>
+                </mat-form-field>
+        </div>
+    
+        <div fxFlex="0 1 calc(25% - 32px)" >
+            <label >Associates</label>
+            <button class="button btn btn-primary"  (click)="uploadAssociates($event)" id='submit-clear' type='submit' for='searchBar'>Upload Associates</button>
+            </div>
+                 
+            <div fxFlex="0 1 calc(25% - 32px)" >
+                <label for="assocs">Smes</label>
+                <button class="button btn btn-primary"  (click)="uploadSmes($event)" id='submit-clear' type='submit' for='searchBar'>Upload Smes</button>
+                </div>
+            </div>
+
+         <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+            <div fxFlex="0 1 calc(25% - 32px)">
+            <button class="button btn btn-primary" (click)="submit()" id='submit-event' type='submit' for='searchBar'>Submit</button>
+            </div>
+            <div fxFlex="0 1 calc(25% - 32px)">
+            <button class="button btn btn-primary" (click)="clear()" id='submit-clear' type='submit' for='searchBar'>Clear</button>
+            </div>
+        </div>
+    </div>
+
+            
+      
+    </form>
+    </div>
+    </div>
+    
+

@@ -1,0 +1,35 @@
+
+<div *ngIf="data.isAlreadyRegistered==true; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+   <h2 mat-dialog-title>Warning</h2>
+    <mat-dialog-content>
+    <p>You have already nominated for the event <b>{{data.eventName}}</b> - <b>{{data.eventSlot}}</b> slot.</p>
+      <p>Please nominate for any other event.</p>
+    </mat-dialog-content>
+</ng-template>
+ 
+<ng-template #elseBlock>
+<h2 mat-dialog-title>Nomination Details</h2>
+<mat-dialog-content #notRegistered>
+  
+<p>You have successfully nominated for the event <b>{{data.eventName}}</b> !!!</p>
+<p>Please find the details of the event below:</p>
+  <ul>
+    <li>
+      Event Date: {{data.eventDate}}
+    </li>
+    <li>
+      Event Slot: {{data.eventSlot}}
+    </li>
+    <li>
+      Event Timing: {{data.startTime + ' - ' + data.endTime}}
+	</li>
+	<li>
+      Registered skills: {{data.eventSkills}}
+    </li>
+  </ul>
+  </mat-dialog-content>
+</ng-template>
+<mat-dialog-actions style="float:right">
+    <button class="button btn btn-primary" style="margin:5px" (click)="close()">Close</button>
+</mat-dialog-actions>

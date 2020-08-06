@@ -1,0 +1,8 @@
+FROM node:12.16.1 AS builder
+COPY . ./Qbthoncodes
+WORKDIR /Qbthoncodes
+RUN npm i
+RUN $(npm bin)/ng build
+
+FROM nginx:1.15.8-alpine
+COPY --from=builder /Qbthoncodes/dist/Qbthoncodes/ /usr/share/nginx/html

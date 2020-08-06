@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Upload Template</h2>
+
+<mat-dialog-content>
+	
+	<div class="from-group">
+		<input type="file" class="form-control" accept="xlsx/*" (change)="onSelectFile($event)" style="height: 100%">
+	</div>
+</mat-dialog-content>
+
+	<mat-dialog-actions style="float:right">
+	<button class="button btn btn-primary" style="margin:5px" (click)="upload()">Upload</button>
+    <button class="button btn btn-primary" style="margin:5px" (click)="close()">Close</button>
+</mat-dialog-actions>

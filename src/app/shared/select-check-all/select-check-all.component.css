@@ -1,0 +1,4 @@
+select-check-all .mat-checkbox-layout,
+select-check-all .mat-checkbox-label {
+  width:100% !important;
+}
